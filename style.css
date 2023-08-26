@@ -1,0 +1,215 @@
+* { /*sempre faremos isso para resetar a nossa página que geralmente eles trazem coisas utilizadas já pelos navegadores*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --ff--heading: 'Epilogue', sans-serif; /*Nesse caso, ficaria melhor em um projeto enorme colocar dessa forma, 
+    visto que se um dia precisar trocar a fonte, basta vir neste único campo e não ir tocando uma a uma, elemento
+    por elemento */
+
+    --bg--primary: #28293E; /*Nesse caso seria a mesma ideia para as fontes, aplicação do background, caso um dia
+    eu queria mudar o back do meu layout, basta eu vir aqui e alterar que automanticamente mudará em todas as tags
+    na qual eu usará esse (--bg--primary)*/
+
+    --fc--primary: #ffffff; /*Aqui virá a cor primária e neste caso, usarei esse (--fc--primary) nas tags que eu
+    desejar utilizar essa cor. */
+    --fc--secondary: #BBB3E5; /*Já neste, será a cor sencurária do meu projeto, mesma ideia, quando eu tiver a
+    necessidade/vontade de utilizar esta cor, basta eu colocar (--fc--secondary) na minha TAG desejada. */
+
+    --fs--body: 1.6rem; /*tamanho da fonte do meu body em REM que no caso seria 16px*/
+    --fs--heading: 4rem; /*tramanho da fonte do meu header também em REM que no caso seria 40px.*/
+}
+
+body {
+    font-family: var(--ff--heading); /*Aplicação da FONT utilizada nas letras, assim como está classificada em cima
+    (heading) se aplicará a font, vale ressaltar que é SEMPRE necessário utilizar-se das VARIÁVEIS (VAR)*/
+
+    background-color: var(--bg--primary); /*Nesse campo de background é a mesma ideia da font, utilizei uma variável
+    como a --bg--primary e assim aplicou-se a cor de fundo em todo o meu prontjeto no qual aplicei no BODY*/
+
+    color: var(--fc--primary); /*Já aqui, é um cor white, ffffff, ou melhor, branco. coloquei como --fc--primary para
+    aplicar-se em todas as letras do projeto*/
+}
+
+.page {
+    max-width: 33rem;
+}
+
+@media (min-width: 700px) {
+
+    :root {
+        --fs--heading: 5.6rem;
+        padding: ;
+    }
+
+    .page {
+        max-width: 117rem;
+    }
+
+    main {
+        grid-template-areas: "A B B"
+        "C D D";
+    }
+
+    main div:nth-child(1) {
+        grid-area: A;
+    }
+
+    main div:nth-child(2) {
+        grid-area: B;
+    }
+
+    main div:nth-child(3) {
+        grid-area: C;
+    }
+
+    main div:nth-child(4) {
+        grid-area: D;
+    }
+
+
+}
+
+img {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+header {
+    font-family: var(--ff--heading); /*Eu sei que aqui nesse projeto foi utilizado apenas UMA fonte, ou seja, quando
+    apliquei essa fonto no BODY (em todo o meu CORPO), não era necessário colocar essa font no header, visto
+    que já estava em todo o meu projeto a ÚNICA fonte utilizada. Nesse caso, bastaria aplicar apenas no H1 o weigth
+    que seria de 800 como BOLD e na TAG p weigth de 400 normal; porém, estou utilizando para sempre lembrar que será
+    necessário no caso do projeto estiver com DUAS ou mais fontes.*/    
+
+    text-align: center; /*pegaria todos os meus itens que estão no meu header, que no caso seria apenas o H1 e a tag P
+    alinharia os dois ao CENTRO da página*/
+
+    margin: 10rem 0 8rem; /*neste caso aqui pegaria 10rem para o margin-top, 0 para as laterias e 8rem para baixo, ou seja,
+    distância entre ''TRABALHOS'' (h1) até a primeira img.*/
+}
+
+header p {
+    color: var(--fc--secondary); /*Utilizando a cor da font da TAG p na qual já foi definida dentro do root.*/
+    text-transform: uppercase; /*Transformação de todo o meu texto em MAIÚSCULO, neste caso dessse texttransform,
+    existem diversas variáveis para trabalhar, deixando tudo em minusculo, negrito, sublinado, etc.*/
+
+    letter-spacing: 3px; /*Seria o espaçamento entre uma letra da outra, exemplo: A M O R A 1x, A  M  O  R  A 2x, etc.*/
+    margin-bottom: 1.7rem; /*Espaço entre o ''recentes'', para o ''Trabalhos'' seria uma distância de 17px ou 1.7 REM*/
+    line-height: 3.2rem; /*tramanhos das linhas*/
+    font-weight: 400; /*fonte utilizada*/
+}
+
+header h1 {
+    font-size: var(--fs--heading); /*font utilizada de 40 px ou 4rem como já está no meu ROOT*/
+    line-height: 4.8rem; /*linhas entre as palavras*/
+    font-weight: 800; /*tamanho da fonte utilizada*/
+    animation: topdown 700ms;
+    /*propriedades de animation:
+    animation-delay: Configura o delay entre o tempo em que o elemento é carregado e o inicio da sequência de animação;
+    animation-direction: Configura se a animação deve ou nao alternar a direção em cada execução durante a sequência ou voltar ao ponto inicial e se repetir;
+    animation-duration: Configura o tempo que uma animação deveria levar para completar um ciclo;
+    animation-iteration-count: Configura o numero de vezes que uma animação deveria se repetir; você pode especificar infinito para repetir a animação indefinidamente;
+    animation-name: Especifica o nome da regra com parênteses (at-rule) @keyframes at-rule descrevendo os keyframes da animação;
+    animation-play-state: Permite voce pausar e resumir a sequência da animação.
+    animation-timing-function: Configura a sincronização da animação; que é, como a animação transita por keyframes, por estabilizar curvas de aceleração;
+    animation-fill-mode: Configura que valores são aplicados pela animação antes e depois de se executar.*/
+}
+
+main { /*foi utilizado aqui a TAG MAIN no qual seria todo o corpo que se encontra a div card com todas as images.*/
+    display: grid; /*utiliza-se o display grid para que tenha uma estrutura, seja ela de colunas, lacunas, enfim.
+    Ela serve para alocar o conteudo todo dentro de uma página*/
+    gap: 3.2rem; /*GAP para distância de uma img da outra*/
+    animation: downtop 700ms 350ms backwards; /*backwards ou forwards, utiliza-se essas propriedades quando estiver usando um delay na página*/
+}
+
+.card { /*card seria a div utilizada, nesse caso colocando sua posição relativa*/
+    position: relative;
+    font-family: var(--ff--heading); 
+}
+
+.card img { /*para mexer com as estruturas das imagens.*/
+    height: 21.5rem; /*seria o tamanho da imagem dentro da caixa proporcionada no elemento*/
+    object-fit: cover; /*esse object-fit significa que o objeto (imagem, vídeo, iframe ou embed) 
+    deve ser redimensionado para se ajustar ao seu contêiner, nesse caso o contêiner cover seria as dimensões do elemento
+    ele preenche todo o container e é mantida a sua razão de aspecto*/
+
+    border-radius: 6px; /*borda das imagens*/
+    transition: all 200ms; /*essa tansition all seria para aplicar as 3 imagens que tenho dentro do meu projeto, já
+    os 200ms seria o tempo que a imagem irá demorar para aumentar o tamanho ao passar o mouse em cima dela.
+    Vale ressaltar que possuo diversos tipos de tansition, vejamos algumas:
+    transition-delay: seria o tempo que demoraria para a minha imagem ou elemento aparecer na pagina;
+    transition-property: corresponde ao nome da propriedade que será modificado quando o processo de transição for iniciado;
+    transition-duration: determina o tempo para executar a transição;
+    transition-timing-function: indica o formato da transição entre o estado inicial e o final;*/
+}
+
+.card img:hover { /*utilização do hover no projeto; serve para adicionar uma característica/estilização quando uma 
+    pessoa passe o mouse sobre o elemento estilizado*/
+    transform: scale(1.1); /*transform scale serve para quando for passado o mouse em cima do elemento, no caso a image,
+    ele aumente o seu tamanho*/
+    opacity: 0.5; /*aqui foi adicionado uma opacidade para que quando essa imagem aumentar ao passar o mouse por cima
+    ela também fique mais voltada ao ''transparente''.*/
+}
+
+.card h2 { /*aqui está falando das escritas que possuem nas imagens*/
+    position: absolute; /*usei absolute justamente para que essas escritas fiquem acima da imagem*/
+    bottom: 2px; /*seria o local onde será a posição da img de cima para baixo*/
+    left: 3rem; /*left= lateral, ou seja, 30px ou 3rem de do lado esquerdo para o centro da imagem*/
+
+    font-size: var(--fs--heading);
+    font-weight: 800;
+
+    display: flex; /*utilização do flex para fazer uma ''caixa''/elemento ao lado do outro*/
+    flex-direction: column; /*column para fazer com que esse flex os elementos se conversem em colunas e na mesma 
+    proporção um do outro já feito pelo flex anteriormente*/
+    gap: 1.2rem; /*esse gap é a distância entre uma palavra e outra*/
+}
+
+.card h2 span { /*esse span referencia-se no meu HTML as palavras tecnologic, Design e Security.*/
+    border-radius: 2rem; /*nv da borda do span*/
+    background-color: var(--fc--primary); /*cor da letra do meu span*/
+    font-size: var(--fs--body);
+    font-weight: 400;
+    color: #090039;
+    padding: 0 1.6rem; /*tamanho da minha caixa que está ficando as palvras (span)*/
+    height: 3.8rem; /*largura da caixa*/
+    width: fit-content; /*definição de uma largura máxima permitira para o tamanho do elemento*/
+    
+    display: inline-flex;
+    align-items: center;
+}
+
+h2:hover { /*ao passar o mouse sobre as palvras mudará a coloração delas*/
+    color: rgb(172, 168, 168);
+    opacity: 0.6;
+}
+
+@keyframes topdown { /*keyframes seria pontos chaves dentro da minha animação |-----ponto-----ponto----ponto----| (exemplo).*/
+
+    0% { /*Esse 0% é que significa o começo 0%|---ponto---|100%*/
+        opacity: 1;
+        transform: translateY(-15px); /*seria a distância dos itens do ''recentes trabalhos >>> para as imagens*/
+    }
+
+    100% { /*Esse 100% é que significa o final 0%|---ponto---|100%*/
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes downtop { /*downtop seria das imagens para o top do projeto*/
+        0% {
+            opacity: 0;
+            transform: translateY(15px); /*ideia de que Y seria de cima pra baixo topdown ou baixo pra cima downtop, e se colocar translateY seria a lateral do que gostaria de animar.*/
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+}
+
